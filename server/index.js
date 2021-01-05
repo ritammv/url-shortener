@@ -1,10 +1,13 @@
 const express = require('express');
 
-const app = express();
 const PORT = process.env.PORT || 3001;
-const router = require('./router');
+// const router = require('./router');
+const connectDB = require('./db.js');
 
-app.use(express.json()).use(router);
+const app = express();
+connectDB();
+app.use(express.json({ extended: false }));
+// .use(router);
 
 app.listen(PORT, (err) => {
   if (err) return console.log(err);
