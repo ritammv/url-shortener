@@ -3,11 +3,18 @@ const { nanoid } = require('nanoid');
 const config = require('config');
 const Url = require('../models/url');
 
-// exports.goToUrl = async (req, res) => {
-//   try {
-//   } catch {}
-// };
-// get short url and redirects to long url
+exports.goToUrl = async (req, res) => {
+  try {
+    const url = await Url.findOne({ urlCode: req.params.code });
+    if (url) {
+      return res.redirect(url.longUrl);
+    }
+    return res.status(404);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json('server error');
+  }
+};
 
 exports.sendUrl = async (req, res) => {
   const { longUrl } = req.body;
