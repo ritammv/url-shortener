@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "config": "^3.3.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.11.10",
     "nanoid": "^3.1.20",

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Form.scss";
+import apiClient from "../services/apiClient";
 
 const Form = () => {
   const [urlObject, setUrlObject] = useState({
@@ -22,12 +23,12 @@ const Form = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e.currentTarget);
+    apiClient.sendUrl(urlObject);
   };
 
   return (
     <div className="form_container">
-      <form onSubmit={(e) => handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <input
           className="form_input"
           type="text"
