@@ -5,7 +5,7 @@ const urlSchema = new mongoose.Schema({
   longUrl: String,
   shortUrl: String,
   dateCreated: { type: String, default: Date.now },
-  datesAccessed: [String],
+  // datesAccessed: [String],
 });
 
 // TODO: every time request made update push the date.now to the dates accessed array
