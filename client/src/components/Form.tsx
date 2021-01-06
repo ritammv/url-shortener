@@ -5,7 +5,7 @@ import apiClient from "../services/apiClient";
 const Form = () => {
   const [urlObject, setUrlObject] = useState({
     longUrl: "",
-    urlCode: "",
+    // urlCode: "",
   });
 
   const handleChange = (
@@ -17,7 +17,7 @@ const Form = () => {
       ...urlObject,
     };
     if (name === "longUrl") newObject.longUrl = target;
-    if (name === "urlCode") newObject.urlCode = target;
+    // if (name === "urlCode") newObject.urlCode = target;
     setUrlObject(newObject);
   };
 
@@ -35,12 +35,12 @@ const Form = () => {
           name="longUrl"
           onChange={(e) => handleChange(e, "longUrl")}
         />
-        <input
+        {/* <input
           className="form_input"
           type="text"
           name="urlCode"
           onChange={(e) => handleChange(e, "urlCode")}
-        />
+        /> */}
         <button className="form_input" type="submit">
           Shorten your URL!
         </button>
