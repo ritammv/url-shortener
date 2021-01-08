@@ -51,6 +51,7 @@ const Form: React.FC = () => {
             className="form_input"
             type="text"
             name="longUrl"
+            id="longUrl"
             placeholder="..."
             onChange={(e) => handleChange(e, "longUrl")}
           />
@@ -59,6 +60,7 @@ const Form: React.FC = () => {
             className="form_input"
             type="text"
             name="urlCode"
+            id="urlCode"
             placeholder="..."
             onChange={(e) => handleChange(e, "urlCode")}
           />

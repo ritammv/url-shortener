@@ -8,7 +8,7 @@ exports.goToUrl = async (req, res) => {
     const url = await Url.findOne({ urlCode: req.params.code });
     if (url) {
       await Url.updateOne(url, {
-        $push: { clickCounter: Date.now() },
+        $push: { datesAccessed: new Date() },
       });
 
       return res.redirect(url.longUrl);
