@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Form.scss";
 import apiClient from "../services/apiClient";
-// import ShortUrl from "./ShortUrl/ShortUrl";
 
 const Form: React.FC = () => {
   const [urlObject, setUrlObject] = useState({
@@ -35,28 +34,34 @@ const Form: React.FC = () => {
   };
 
   return (
-    <div className="form_container">
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          className="form_input"
-          type="text"
-          name="longUrl"
-          placeholder="longUrl goes here"
-          onChange={(e) => handleChange(e, "longUrl")}
-        />
-        <input
-          className="form_input"
-          type="text"
-          name="urlCode"
-          placeholder="customise your URL"
-          onChange={(e) => handleChange(e, "code")}
-        />
-        <button className="form_input" type="submit">
-          Shorten your URL!
-        </button>
-      </form>
-      {result.shortUrl && <h1>{result.shortUrl}</h1>}
-    </div>
+    <>
+      <div className="form_container">
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <input
+            className="form_input"
+            type="text"
+            name="longUrl"
+            placeholder="longUrl goes here"
+            onChange={(e) => handleChange(e, "longUrl")}
+          />
+          <input
+            className="form_input"
+            type="text"
+            name="urlCode"
+            placeholder="customise your URL"
+            onChange={(e) => handleChange(e, "code")}
+          />
+          <button className="form_input" type="submit">
+            Shorten your URL!
+          </button>
+        </form>
+      </div>
+      {result.shortUrl && (
+        <div className="short_url_container">
+          <h1>{result.shortUrl}</h1>
+        </div>
+      )}
+    </>
   );
 };
 

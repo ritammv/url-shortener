@@ -4,10 +4,8 @@ const urlSchema = new mongoose.Schema({
   urlCode: String,
   longUrl: String,
   shortUrl: String,
-  dateCreated: { type: String, default: Date.now },
-  // datesAccessed: [String],
+  dateCreated: { type: String, default: Date.now() },
+  clickCounter: Array,
 });
-
-// TODO: every time request made update push the date.now to the dates accessed array
 
 module.exports = mongoose.model('url', urlSchema);

@@ -7,7 +7,25 @@ exports.goToUrl = async (req, res) => {
   try {
     const url = await Url.findOne({ urlCode: req.params.code });
     if (url) {
+      await Url.updateOne(url, {
+        $push: { clickCounter: Date.now() },
+      });
+
       return res.redirect(url.longUrl);
+    }
+    return res.status(404);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json('server error');
+  }
+};
+
+exports.getStats = async (req, res) => {
+  try {
+    const url = await Url.findOne({ urlCode: req.params.code });
+    if (url) {
+      res.status(200);
+      return res.send(url);
     }
     return res.status(404);
   } catch (err) {
