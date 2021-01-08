@@ -17,7 +17,7 @@ exports.goToUrl = async (req, res) => {
 };
 
 exports.sendUrl = async (req, res) => {
-  const { longUrl } = req.body;
+  const { longUrl, code } = req.body;
 
   const BASE_URL = config.get('BASE_URL');
 
@@ -32,7 +32,23 @@ exports.sendUrl = async (req, res) => {
       let url = await Url.findOne({ longUrl });
 
       if (url) {
-        res.json(url);
+        return res.send(url);
+      }
+      if (code) {
+        const checkCode = await Url.findOne({ urlCode: code });
+        if (!checkCode) {
+          const shortUrl = `${BASE_URL}/${code}`;
+          url = new Url({
+            longUrl,
+            shortUrl,
+            urlCode: code,
+            date: new Date(),
+          });
+          await url.save();
+          res.json(url);
+        } else {
+          res.send('Sorry URL already exists');
+        }
       } else {
         const shortUrl = `${BASE_URL}/${urlCode} `;
         url = new Url({
@@ -43,13 +59,13 @@ exports.sendUrl = async (req, res) => {
         });
 
         await url.save();
-        res.json(url);
+        return res.send(url);
       }
     } catch (err) {
       console.error(err);
-      res.status(500).json('Server Error');
+      return res.status(500).json('Server Error');
     }
   } else {
-    res.status(401).json('Invalid Long URL');
+    return res.status(401).json('Invalid Long URL');
   }
 };

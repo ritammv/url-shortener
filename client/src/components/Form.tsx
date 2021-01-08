@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import "./Form.scss";
 import apiClient from "../services/apiClient";
+// import ShortUrl from "./ShortUrl/ShortUrl";
 
-const Form = () => {
+const Form: React.FC = () => {
   const [urlObject, setUrlObject] = useState({
     longUrl: "",
-    // urlCode: "",
+    code: "",
+  });
+  const [result, setResult] = useState({
+    longUrl: "",
+    id: "",
+    shortUrl: "",
+    date: "",
+    code: "",
   });
 
   const handleChange = (
@@ -17,13 +25,13 @@ const Form = () => {
       ...urlObject,
     };
     if (name === "longUrl") newObject.longUrl = target;
-    // if (name === "urlCode") newObject.urlCode = target;
+    if (name === "code") newObject.code = target;
     setUrlObject(newObject);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    apiClient.sendUrl(urlObject);
+    apiClient.sendUrl(urlObject).then((res: Url) => setResult(res));
   };
 
   return (
@@ -33,18 +41,21 @@ const Form = () => {
           className="form_input"
           type="text"
           name="longUrl"
+          placeholder="longUrl goes here"
           onChange={(e) => handleChange(e, "longUrl")}
         />
-        {/* <input
+        <input
           className="form_input"
           type="text"
           name="urlCode"
-          onChange={(e) => handleChange(e, "urlCode")}
-        /> */}
+          placeholder="customise your URL"
+          onChange={(e) => handleChange(e, "code")}
+        />
         <button className="form_input" type="submit">
           Shorten your URL!
         </button>
       </form>
+      {result.shortUrl && <h1>{result.shortUrl}</h1>}
     </div>
   );
 };
