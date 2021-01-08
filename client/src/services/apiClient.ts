@@ -16,7 +16,14 @@ const sendUrl = (urlObject: UserUrl): Promise<Url> => {
     .catch((err) => console.error(err));
 };
 
+const getStats = (code: string): Promise<Url> => {
+  return fetch(`${BASE_URL}/${code}/stats`)
+    .then((res) => res.json())
+    .catch((err) => console.error(err));
+};
+
 export default {
   getToUrl,
   sendUrl,
+  getStats,
 };
