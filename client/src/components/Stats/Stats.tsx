@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Stats.scss";
-
-import { STATUS_CODES } from "http";
-import { stat } from "fs";
 import apiClient from "../../services/apiClient";
 
 const Stats: React.FC = () => {
