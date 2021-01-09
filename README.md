@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="images/GETSHORTY.png" width="425" height="370">
+  <img src="images/getshorty2.png" width="450" height="300">
+ </p>
+
 # GET SHORTY
 
 A full stack React App written in TypeScript with a Node/Express Server & MongoDB database (MERN STACK)
@@ -14,18 +19,10 @@ Users can also get more information about their short URL, including: when the U
 - Step 4: Navigate to the server and hit `node index.js`
 - Step 5: Create all the short URLs you want and need!
 
-## Tech Stack
+# Testing
 
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [MongoDB](https://www.mongodb.com/)
-- [Mongoose](https://mongoosejs.com/)
-- [Node.JS](https://nodejs.org/en/)
-- [Express](https://expressjs.com/)
-
-## Author
-
-- Ritam Verma - [GitHub](https://github.com/ritammv) - [LinkedIn](https://www.linkedin.com/in/ritammv)
+- Front-end Testing: `cd client && npm test`
+- Back-end Testing: `cd server && npm test`
 
 ## Tech Stack
 
@@ -39,3 +36,5 @@ Users can also get more information about their short URL, including: when the U
 ## Author
 
 - Ritam Verma - [GitHub](https://github.com/ritammv) - [LinkedIn](https://www.linkedin.com/in/ritammv)
+
+
