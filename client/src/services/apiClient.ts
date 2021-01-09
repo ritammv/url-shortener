@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const BASE_URL = "http://localhost:3001";
 
 const getToUrl = (code: string): Promise<Url> => {
