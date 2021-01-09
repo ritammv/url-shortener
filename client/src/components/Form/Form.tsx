@@ -5,11 +5,11 @@ import { useHistory } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 
 const Form: React.FC = () => {
-  const [urlObject, setUrlObject] = useState({
+  const [urlObject, setUrlObject] = useState<UserUrl>({
     longUrl: "",
     code: "",
   });
-  const [result, setResult] = useState({
+  const [result, setResult] = useState<Url>({
     longUrl: "",
     id: "",
     shortUrl: "",

@@ -4,7 +4,7 @@ import "./Stats.scss";
 import apiClient from "../../services/apiClient";
 
 const Stats: React.FC = () => {
-  const [stats, setStats] = useState({
+  const [stats, setStats] = useState<Url>({
     longUrl: "",
     id: "",
     shortUrl: "",

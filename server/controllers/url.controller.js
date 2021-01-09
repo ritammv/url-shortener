@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const validUrl = require('valid-url');
 const { nanoid } = require('nanoid');
 const config = require('config');
