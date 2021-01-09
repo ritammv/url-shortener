@@ -1,6 +1,6 @@
 <p align="center">
   <img src="images/GETSHORTY.png" width="425" height="370">
-  <img src="images/getshorty_1.png" width="450" height="300">
+  <img src="images/getshorty_1.png" width="550" height="300">
  </p>
 
 # GET SHORTY
