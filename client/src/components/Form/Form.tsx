@@ -65,7 +65,11 @@ const Form: React.FC = () => {
             onChange={(e) => handleChange(e, "urlCode")}
           />
 
-          <button className="form_input_button" type="submit">
+          <button
+            data-testid="shortenBtn"
+            className="form_input_button"
+            type="submit"
+          >
             Shorten your URL!
           </button>
         </form>
