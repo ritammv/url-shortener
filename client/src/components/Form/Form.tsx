@@ -52,6 +52,8 @@ const Form: React.FC = () => {
             type="text"
             name="longUrl"
             id="longUrl"
+            required
+            pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
             placeholder="..."
             onChange={(e) => handleChange(e, "longUrl")}
           />
@@ -60,6 +62,7 @@ const Form: React.FC = () => {
             className="form_input"
             type="text"
             name="urlCode"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$"
             id="urlCode"
             placeholder="..."
             onChange={(e) => handleChange(e, "urlCode")}
@@ -86,7 +89,6 @@ const Form: React.FC = () => {
               More Info about this URL
             </button>
           </div>
-          <div className="footer">Made by Ritam Verma</div>
         </div>
       )}
     </>

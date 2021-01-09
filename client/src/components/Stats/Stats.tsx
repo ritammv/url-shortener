@@ -24,17 +24,18 @@ const Stats: React.FC = () => {
 
   return (
     <div className="stats_container">
-      <h1>URL CODE: {code}</h1>;
+      <h1>URL CODE: {code}</h1>
       <h3>
         This URL was created on:
         {stats.dateCreated}
       </h3>
+
       <h4>
         Since creation, it has been clicked {stats.datesAccessed.length} times
       </h4>
       {stats.datesAccessed.length > 1 && (
         <h4>
-          It was last accessed on{" "}
+          It was last accessed on
           {stats.datesAccessed[stats.datesAccessed.length - 1]}
         </h4>
       )}
