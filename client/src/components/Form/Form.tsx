@@ -57,7 +57,7 @@ const Form: React.FC = () => {
             placeholder="..."
             onChange={(e) => handleChange(e, "longUrl")}
           />
-          <label htmlFor="urlCode"> Add a custom code here</label>
+          <label htmlFor="urlCode"> Add a custom code here (optional) </label>
           <input
             className="form_input"
             type="text"
@@ -83,6 +83,7 @@ const Form: React.FC = () => {
             {result.shortUrl}
             <button
               className="more_info_button"
+              data-testid="moreInfoBtn"
               type="button"
               onClick={handleClick}
             >

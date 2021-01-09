@@ -1,10 +1,7 @@
 /* eslint-disable no-undef */
 const supertest = require('supertest');
-// const db = require('../models/url');
 const mongoose = require('mongoose');
 const app = require('../app');
-const { Url } = require('../models/url');
-// const mocks = require('../mocks/mocks');
 
 const request = supertest(app);
 
@@ -39,6 +36,5 @@ it('Should create short URL and save to database', async (done) => {
 it('should error if accessing / route', async (done) => {
   const response = await request.get('/');
   expect(response.status).toBe(404);
-
   done();
 });

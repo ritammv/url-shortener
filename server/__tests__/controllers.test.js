@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const mongoose = require('mongoose');
-const { goToUrl, getStats, sendUrl } = require('../controllers/url.controller');
+const { goToUrl, getStats } = require('../controllers/url.controller');
 
 const Url = require('../models/url');
 
@@ -41,7 +41,7 @@ describe('goToUrl', () => {
     await goToUrl(req, res);
     expect(Url.findOne).toHaveBeenCalled();
     expect(Url.findOne).toHaveBeenCalledWith({ urlCode: 'sausage' });
-    // expect(res.redirect).toHaveBeenCalled();
+    // expect(res.redirect.mock.calls.length).toEqual(1);
   });
 });
 
@@ -58,20 +58,5 @@ describe('getStats', () => {
     expect(Url.findOne).toHaveBeenCalledWith({ urlCode: 'sausage' });
     // expect(res.status).toHaveBeenCalledWith(200);
     // expect(res.send).toHaveBeenCalledWith(urlObject);
-  });
-});
-
-describe('sendUrl', () => {
-  req.body = {
-    longUrl: 'https://www.howtographql.com/vue-apollo/0-introduction/',
-    code: 'sausage',
-  };
-
-  Url.findOne = jest.fn();
-  Url.findOne.mockResolvedValue(urlObject);
-
-  test('sendUrl should have been called successfully', async () => {
-    await sendUrl(req, res);
-    expect(Url.findOne).toHaveBeenCalled();
   });
 });

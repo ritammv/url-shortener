@@ -18,6 +18,9 @@ beforeAll(async () => {
   });
   return urlObject.save();
 });
+test('Should failed when env not test ', () => {
+  expect(process.env.NODE_ENV).toEqual('test');
+});
 
 test('urlObject should be defined', () => {
   expect(urlObject).toBeDefined();
@@ -32,4 +35,8 @@ test('urlObject should have short url', () => {
   expect(urlObject.shortUrl).toEqual(
     `http://localhost:3001/${urlObject.urlCode}`
   );
+});
+
+afterAll((done) => {
+  mongoose.disconnect(done);
 });
